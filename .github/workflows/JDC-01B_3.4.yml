@@ -1,5 +1,5 @@
 
-name: 京东云一代JDC-1
+name: JDC-01B_3.4
 
 on: 
   workflow_dispatch:
@@ -30,7 +30,7 @@ jobs:
         install-only: true
     - name: Clone source code
       env:
-        KERNEL: 4.4
+        KERNEL: 3.4
       run: |
         git clone --depth=1 https://github.com/${GITHUB_REPOSITORY}.git /opt/rt-n56u
         cd /opt/rt-n56u/toolchain-mipsel
@@ -38,12 +38,12 @@ jobs:
         mkdir -p /opt/images/
 
         #### 去掉#解决挂载emmc问题？
-        sed -i 's/mdev/mdev/g' /opt/rt-n56u/trunk/user/scripts/mtd_storage.sh
+        sed -i 's/#mdev/mdev/g' /opt/rt-n56u/trunk/user/scripts/mtd_storage.sh
         
     - name: Build Firmware
       env:
         TNAME: JDCLOUD-RE-SP-01B
-        KERNEL: 4.4
+        KERNEL: 3.4
       run: |
         cd /opt/rt-n56u/trunk
         if [ ! -f configs/templates/$TNAME.config ] ; then
@@ -403,7 +403,7 @@ jobs:
         echo "CONFIG_FIRMWARE_INCLUDE_CLOUDFLARED=y" >> .config #CF的隧道 约50k
         echo "CONFIG_FIRMWARE_INCLUDE_LUCKY=n" >> .config #LUCKY 约50k
         echo "CONFIG_FIRMWARE_INCLUDE_CLOUDFLARE=n" >> .config #CF-ddns 约50k
-        echo "CONFIG_FIRMWARE_INCLUDE_EASYTIER=y" >> .config #EasyTier 约50k
+        echo "CONFIG_FIRMWARE_INCLUDE_EASYTIER=n" >> .config #EasyTier 约50k
         
         echo "CONFIG_FIRMWARE_INCLUDE_ALIST=n" >> .config #ALIST文件列表 约80k
         echo "CONFIG_FIRMWARE_INCLUDE_WXSEND=n" >> .config #微信推送 约50k
@@ -441,7 +441,7 @@ jobs:
     - name : Upload packages
       uses: actions/upload-artifact@master
       with:
-        name: JDC-1
+        name: JDC-01B_3.4
         path: /opt/images
 
     - name: Release
