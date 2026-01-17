@@ -2,17 +2,13 @@
 name: JDC-01A
 
 on: 
-  release:
-    types: [published]
-  push:
-    tags:
-    - 'v*'
-  #  branches: 
-  #    - master
-#  schedule:
-#    - cron: 0 8 * * 5
-  watch:
-    types: [started]
+  workflow_dispatch:
+
+#设置仓库的读写权限
+permissions:
+  contents: write
+env:
+  TZ: Asia/Shanghai
 
 jobs:
   build:
