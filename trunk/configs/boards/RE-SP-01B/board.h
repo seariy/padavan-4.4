@@ -8,9 +8,9 @@
  #define BOARD_FLASH_TIME	120
 
  #define BOARD_GPIO_BTN_RESET	  18
- #define BOARD_GPIO_LED_WIFI    12
- #define BOARD_GPIO_LED_POWER	  6
- #define BOARD_GPIO_LED_WAN     8
+ #undef BOARD_GPIO_LED_WIFI
+ #define BOARD_GPIO_LED_POWER	  12
+ #undef BOARD_GPIO_LED_WAN
 
  #define BOARD_HAS_5G_11AC		1
  #define BOARD_NUM_ANT_5G_TX		4
