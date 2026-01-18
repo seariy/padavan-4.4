@@ -1,5 +1,5 @@
- #define BOARD_PID "RE-SP-01B"
- #define BOARD_NAME "RE-SP-01B"
+ #define BOARD_PID "JDC-01B"
+ #define BOARD_NAME "JDC-01B"
  #define BOARD_DESC "JDCloud RE-SP-01B Wireless Router"
  #define BOARD_VENDOR_NAME "Jingdong Technology Holding Co. Ltd."
  #define BOARD_VENDOR_URL "https://jdbox.jdcloud.com/"
