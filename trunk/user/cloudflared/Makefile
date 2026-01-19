@@ -6,7 +6,6 @@ all:
 extract_test:
 
 config_test:
-
 clean:
 
 romfs:
