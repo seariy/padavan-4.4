@@ -181,6 +181,9 @@ ifneq ($(STORAGE_ENABLED),y)
 	rm -rf $(INSTALLDIR)/www/images/AiDisk
 	rm -rf $(INSTALLDIR)/www/images/Tree
 endif
+ifneq ($(CONFIG_FIRMWARE_INCLUDE_CADDY),y)
+	rm -f $(INSTALLDIR)/www/Advanced_caddy.asp
+endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_SCUTCLIENT),y)
 	rm -f $(INSTALLDIR)/www/scutclient.asp
 	rm -f $(INSTALLDIR)/www/scutclient_log.asp
@@ -220,6 +223,9 @@ ifneq ($(CONFIG_FIRMWARE_INCLUDE_DDNSTO),y)
 endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_WIREGUARD),y)
 	rm -f $(INSTALLDIR)/www/Advanced_wireguard.asp
+endif
+ifneq ($(CONFIG_FIRMWARE_INCLUDE_CLOUDFLARED),y)
+	rm -f $(INSTALLDIR)/www/Advanced_cloudflared.asp
 endif
 ifneq ($(CONFIG_FIRMWARE_INCLUDE_ALDRIVER),y)
 	rm -f $(INSTALLDIR)/www/Advanced_aliyundrive.asp
